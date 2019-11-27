@@ -638,10 +638,15 @@ class modParser {
                                 round(  $this->timer['timer'][$id]['timer']['time']
                                       - $this->timer['timer'][$id]['childrentotal'],8)),
                                 '0') ;
-                $output[$v['timer']['objectName']]['time'] += $v['timer']['timefiltered'];
+                $output[$v['timer']['objectName']]['time'] += $this->timer['timer'][$id]['timefiltered'];
+                $output[$v['timer']['objectName']]['count'] ++;
               }
+              foreach ($output as $id=>$v) {
+                $total[]=$v['time'];
+              }
+              array_multisort($total, SORT_DESC, SORT_NUMERIC, $output);
               break;
-            case 'parsechildren':
+            case 'parseChildren':
             default:
             $total = array();
             foreach ($this->timer['timer'] as $id=>$v) {
