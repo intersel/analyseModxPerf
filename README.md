@@ -31,6 +31,8 @@ and closed with a "hack ends".
 The hack code is activated through Settings variables that need to be created:
 * parser_timer - set to 1 to activate the timers
 * parser_print - set the output format 
+  * parseChildren (default)
+  * sortbyName
 
 The results after parse are logged in ```'core/cache/logs/parser_timer/*.log'```
 
